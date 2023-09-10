@@ -1,4 +1,4 @@
-import {loadPage, hamburgerMenu} from "../services/services.js";
+import {loadPage, hamburgerMenu, images} from "../services/services.js";
 
 function initializeListeners() {
   $(window).on("hashchange", loadPage);
@@ -14,3 +14,13 @@ $(document).ready(function () {
 function openHamburger() {
   hamburgerMenu.classList.toggle("openHamburger");
 }
+
+function preloadImage(imageArray)
+{
+  imageArray.forEach( (item) => {
+    let image = new Image();
+    image.src = `../images/${item}`;
+  })
+}
+
+preloadImage(images);

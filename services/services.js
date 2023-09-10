@@ -2,6 +2,8 @@ let globalNav = document.getElementById("navLinks");
 export var hamburgerMenu = document.getElementById("hamburgerMenu");
 var typingEffect;
 
+export let images = ["portfolioImage.png", "travelFlyImage.jpg"];
+
 export function loadPage() {
     let hashTag = window.location.hash;
     let pageToLoad = hashTag.replace("#", "");
