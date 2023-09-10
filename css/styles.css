@@ -68,6 +68,26 @@ nav .mobileNav li:hover a {
   color: #0dff70;
 }
 
+.pageHeader {
+  width: 80%;
+  font-size: 40px;
+  margin: 40px auto 0 auto;
+  color: #3d535f;
+}
+
+footer {
+  width: 100%;
+  background-color: #0dff70;
+  color: #f3f5f8;
+  text-align: center;
+  height: 80px;
+  font-size: 20px;
+  font-weight: 400;
+  padding-top: 26px;
+  position: absolute;
+  bottom: 0;
+}
+
 @media (max-width: 1020px) {
   nav .logo {
     font-size: 26px;
@@ -126,7 +146,7 @@ nav .mobileNav li:hover a {
 }
 .container {
   width: 100%;
-  min-height: 100vh;
+  min-height: 1vh;
   background-color: #f3f5f8;
 }
 .container .wrapper {
@@ -339,6 +359,40 @@ nav .mobileNav li:hover a {
   .projectsPage .quickLook img {
     width: 400px;
   }
+}
+.contactPage {
+  width: 70%;
+  height: 400px;
+  margin: 50px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.contactPage input {
+  width: 200px;
+  height: 40px;
+  margin: 10px 0 10px 0;
+  font-size: 16px;
+  padding-left: 10px;
+  color: #3d535f;
+  border: 2px solid #0dff70;
+}
+.contactPage textarea {
+  width: 40%;
+  resize: none;
+  font-size: 16px;
+  padding: 10px;
+  color: #3d535f;
+  border: 2px solid #0dff70;
+}
+.contactPage button {
+  width: 150px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: #0dff70;
+  color: #3d535f;
+  font-size: 20px;
+  margin-top: 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -63,6 +63,26 @@ nav {
 
 }
 
+.pageHeader {
+    width: 80%;
+    font-size: 40px;
+    margin: 40px auto 0 auto;
+    color: $site-grey;
+}
+
+footer {
+    width: 100%;
+    background-color: $site-green;
+    color: $site-white;
+    text-align: center;
+    height: 80px;
+    font-size: 20px;
+    font-weight: 400;
+    padding-top: 26px;
+    position: absolute;
+    bottom: 0;
+}
+
 
 
 @media (max-width: 1020px) {
