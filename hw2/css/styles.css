@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+nav {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+nav .navLinks {
+  display: flex;
+}
+nav .navLinks li {
+  list-style: none;
+  margin: 0 20px;
+}
+nav .navLinks li a {
+  font-size: 25px;
+  text-decoration: none;
+  color: black;
+}
+
+#page {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.homePage {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("../images/indy1.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+.homePage h3 {
+  color: white;
+  font-weight: 600;
+  width: 30%;
+  margin-left: 50px;
+}
+
+.aboutPage {
+  width: 80%;
+  height: 70vh;
+  margin: 50px auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.aboutPage img {
+  width: 600px;
+  height: 400px;
+}
+.aboutPage p {
+  width: 30%;
+  font-weight: 600;
+}
+
+.contactPage {
+  width: 80%;
+  height: 70vh;
+  margin: 50px auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.contactPage img {
+  width: 500px;
+  height: 300px;
+}
+.contactPage p {
+  width: 30%;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.projectsPage {
+  width: 80%;
+  height: 70vh;
+  margin: 50px auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.projectsPage img {
+  width: 700px;
+  height: 400px;
+}
+.projectsPage p {
+  width: 30%;
+  font-size: 20px;
+  font-weight: 600;
+  border: 2px solid blue;
+  padding: 10px;
+}
+
+/*# sourceMappingURL=styles.css.map */
