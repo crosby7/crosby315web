@@ -1,0 +1,398 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+
+html {
+  background-color: #f3f5f8;
+}
+
+body {
+  overflow: hidden;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-around;
+  height: 80px;
+  z-index: 11;
+}
+nav .logo {
+  display: flex;
+  font-size: 32px;
+  font-weight: 800;
+  color: #3d535f;
+  letter-spacing: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+nav .navItems {
+  display: flex;
+  margin-top: 10px;
+}
+nav .navItems li {
+  list-style: none;
+  margin: 0 15px;
+}
+nav .navItems li a {
+  font-size: 25px;
+  font-weight: 500;
+  color: #3d535f;
+  letter-spacing: 3px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+nav .mobileNav {
+  display: none;
+  margin-top: 1px;
+}
+nav .mobileNav li {
+  display: none;
+  margin: 0 15px;
+}
+nav .mobileNav li a {
+  font-size: 25px;
+  font-weight: 400;
+  color: #3d535f;
+  letter-spacing: 3px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+nav .navItems li:hover a,
+nav .links:hover a,
+nav .mobileNav li:hover a {
+  color: #0dff70;
+}
+
+.pageHeader {
+  width: 80%;
+  font-size: 40px;
+  margin: 40px auto 0 auto;
+  color: #3d535f;
+}
+
+footer {
+  width: 100%;
+  background-color: #0dff70;
+  color: #f3f5f8;
+  text-align: center;
+  height: 80px;
+  font-size: 20px;
+  font-weight: 400;
+  padding-top: 26px;
+  position: absolute;
+  bottom: 0;
+}
+
+@media (max-width: 1020px) {
+  nav .logo {
+    font-size: 26px;
+  }
+  nav .navItems li a {
+    font-size: 18px;
+  }
+}
+@media (max-width: 680px) {
+  nav .logo {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+  nav .navItems {
+    display: none;
+  }
+  nav .navItems li {
+    display: none;
+  }
+  nav .mobileNav {
+    display: block;
+    margin-top: 5px;
+  }
+  nav .mobileNav .fa-bars {
+    font-size: 24px;
+    color: #3d535f;
+  }
+  nav .openHamburger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+  }
+  nav .openHamburger .fa-bars {
+    width: 75%;
+    text-align: right;
+  }
+  nav .openHamburger li {
+    display: flex;
+    position: relative;
+    width: 100px;
+    height: 50px;
+    background-color: #3d535f;
+    border: 1px solid #0dff70;
+    justify-content: center;
+    align-items: center;
+  }
+  nav .openHamburger li a {
+    color: #f3f5f8;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+  nav .mobileNav:hover i {
+    color: #0dff70;
+  }
+}
+.container {
+  width: 100%;
+  min-height: 1vh;
+  background-color: #f3f5f8;
+}
+.container .wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 0 10%;
+  overflow: hidden;
+  margin-top: 20px;
+}
+.container .wrapper .cols {
+  width: 70%;
+}
+.container .wrapper .topline {
+  display: block;
+  position: relative;
+  font-size: 35px;
+  letter-spacing: 5px;
+  color: #3d535f;
+}
+.container .wrapper .topline::after {
+  position: absolute;
+  content: "";
+  height: 4px;
+  width: 45px;
+  bottom: 10px;
+  background-color: #0dff70;
+}
+.container .wrapper h1 {
+  display: block;
+  font-size: 6em;
+  font-weight: 900;
+  color: #3d535f;
+}
+.container .wrapper .multiText {
+  color: #0dff70;
+}
+.container .wrapper p {
+  display: block;
+  width: 90%;
+  font-size: 1.5em;
+  color: #3d535f;
+  margin-top: 20px;
+}
+.container .wrapper .btns {
+  width: 100%;
+  position: relative;
+}
+.container .wrapper .btns button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: 400;
+  color: #FFF;
+  background-color: #3d535f;
+  padding: 8px 14px;
+  margin: 15px 5px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.4);
+}
+.container .wrapper .btns button a {
+  text-decoration: none;
+  color: #FFF;
+}
+.container .wrapper .btns button:hover {
+  background-color: #0dff70;
+}
+
+@media (max-width: 1020px) {
+  .container .wrapper h1 {
+    font-size: 4em;
+  }
+  .container .wrapper .topline {
+    font-size: 28px;
+  }
+  .container .wrapper p {
+    font-size: 24px;
+    width: 100%;
+  }
+  .container .wrapper .btns button {
+    font-size: 20px;
+  }
+}
+@media (max-width: 680px) {
+  .container .wrapper .topline {
+    font-size: 30px;
+  }
+  .container .wrapper h1 {
+    font-size: 40px;
+    height: 120px;
+  }
+  .container .wrapper p {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}
+.aboutPage {
+  width: 90%;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.aboutPage .myImage img {
+  width: 800px;
+  height: auto;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #0dff70;
+}
+.aboutPage .aboutText {
+  width: 30%;
+  font-size: 22px;
+  color: #3d535f;
+  font-weight: 400;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #0dff70;
+}
+
+@media (max-width: 1150px) {
+  .aboutPage .myImage {
+    width: 60%;
+    height: 100%;
+  }
+  .aboutPage .myImage img {
+    width: 100%;
+  }
+}
+@media (max-width: 1020px) {
+  .aboutPage .aboutText {
+    font-size: 16px;
+  }
+}
+@media (max-width: 750px) {
+  .aboutPage {
+    flex-direction: column;
+  }
+  .aboutPage .myImage {
+    margin-bottom: 20px;
+  }
+  .aboutPage .aboutText {
+    width: 80%;
+  }
+}
+.projectsPage {
+  width: 90%;
+  min-height: 1vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 40px auto;
+}
+.projectsPage .quickLook img {
+  width: 500px;
+  height: auto;
+  border: 2px solid #0dff70;
+  border-radius: 20px;
+}
+.projectsPage .textAndLink {
+  width: 40%;
+}
+.projectsPage .textAndLink h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #3d535f;
+}
+.projectsPage .textAndLink p {
+  font-size: 16px;
+}
+.projectsPage .textAndLink button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  color: #FFF;
+  background-color: #3d535f;
+  padding: 8px 14px;
+  margin: 15px 5px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.4);
+}
+.projectsPage .textAndLink button a {
+  text-decoration: none;
+  color: #FFF;
+}
+.projectsPage .textAndLink button:hover {
+  background-color: #0dff70;
+}
+
+@media (max-width: 970px) {
+  .projectsPage {
+    flex-direction: column;
+  }
+  .projectsPage .quickLook {
+    margin-bottom: 20px;
+  }
+  .projectsPage .textAndLink {
+    width: 70%;
+  }
+}
+@media (max-width: 500px) {
+  .projectsPage {
+    width: 100%;
+  }
+  .projectsPage .quickLook {
+    width: 400px;
+  }
+  .projectsPage .quickLook img {
+    width: 400px;
+  }
+}
+.contactPage {
+  width: 70%;
+  height: 400px;
+  margin: 50px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.contactPage input {
+  width: 200px;
+  height: 40px;
+  margin: 10px 0 10px 0;
+  font-size: 16px;
+  padding-left: 10px;
+  color: #3d535f;
+  border: 2px solid #0dff70;
+}
+.contactPage textarea {
+  width: 40%;
+  resize: none;
+  font-size: 16px;
+  padding: 10px;
+  color: #3d535f;
+  border: 2px solid #0dff70;
+}
+.contactPage button {
+  width: 150px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: #0dff70;
+  color: #3d535f;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+/*# sourceMappingURL=styles.css.map */
