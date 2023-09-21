@@ -43,11 +43,19 @@ nav .navLinks li a {
   display: flex;
   align-items: center;
 }
-.homePage h3 {
+.homePage .hero {
+  margin-left: 40px;
+}
+.homePage .hero h2 {
   color: white;
-  font-weight: 600;
+  font-weight: 800;
   width: 30%;
-  margin-left: 50px;
+  margin-bottom: 30px;
+}
+.homePage .hero p {
+  color: white;
+  font-weight: 400;
+  width: 20%;
 }
 
 .aboutPage {
@@ -103,6 +111,20 @@ nav .navLinks li a {
   font-weight: 600;
   border: 2px solid blue;
   padding: 10px;
+}
+
+.outreachPage {
+  width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.outreachPage img {
+  width: 60vw;
+  height: auto;
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */
