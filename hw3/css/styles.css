@@ -71,8 +71,9 @@ nav .navLinks li a {
   height: 400px;
 }
 .aboutPage p {
-  width: 30%;
-  font-weight: 600;
+  width: 40%;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .contactPage {
@@ -115,16 +116,20 @@ nav .navLinks li a {
 
 .outreachPage {
   width: 1200px;
-  height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .outreachPage img {
-  width: 60vw;
+  width: 50vw;
   height: auto;
   margin-bottom: 20px;
+}
+.outreachPage p {
+  width: 50vw;
+  font-weight: 300;
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,9 +1,6 @@
 export let images = ["indy1.jpeg", "indy2.jpeg", "indy3.jpeg"];
 
-export function switchPage() {
-    let hashTag = window.location.hash;
-    let pageToLoad = hashTag.replace("#", "");
-
+export function switchPage(pageToLoad) {
 
     if (pageToLoad != "")
     {

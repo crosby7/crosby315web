@@ -1,9 +1,16 @@
 import {switchPage, images} from "../services/services.js";
 
 function initializeListeners() {
-  $(window).on("hashchange", switchPage);
-  switchPage();
+  $(window).on("hashchange", newRoute);
+  newRoute();
 
+}
+
+function newRoute() {
+  let hashTag = window.location.hash;
+  let pageToLoad = hashTag.replace("#", "");
+
+  switchPage(pageToLoad);
 }
 
 $(document).ready(function () {
