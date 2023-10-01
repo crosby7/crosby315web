@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Homework 4</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <div id="modal">
+        <div class="modalBackground close">
+            <div id="modalContent">
+                <div class="close closeButton">X</div>
+                <h3>username:</h3>
+                <input type="text" name="name" id="name" placeholder="user123">
+                <h3>password:</h3>
+                <input type="password" name="password" id="password" placeholder="****">
+                <button id="submit">Login</button>
+            </div>
+            <div id="modalSuccess">
+                <h2>Logged In! Redirecting...</h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script type="module" src="services/services.js"></script>
+    <script type="module" src="app/app.js"></script>
+</body>
+</html>
