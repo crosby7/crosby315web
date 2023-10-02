@@ -1,0 +1,64 @@
+#modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+
+  .modalBackground {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    background-color: rgba(128, 128, 128, 0.5);
+    z-index: 90;
+  }
+
+  #modalContent {
+    position: relative;
+    z-index: 99;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 60%;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px;
+
+    .inputBox {
+      margin-top: 20px;
+      h3 {
+        text-align: left;
+        margin-bottom: 5px;
+      }
+    }
+
+    #submit {
+      width: 70px;
+      height: 40px;
+      background-color: rgba(128, 128, 128, 1);
+      border-radius: 20px;
+    }
+
+    .closeButton {
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      padding: 10px;
+      background-color: red;
+    }
+  }
+
+  #modalSuccess {
+    position: relative;
+    z-index: 99;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 60%;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px;
+  }
+}

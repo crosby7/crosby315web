@@ -1,32 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Homework 4</title>
-</head>
-<body>
-    <div id="app"></div>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">Homework 4</div>
+      <div><a href="#" class="login">Login</a></div>
+    </nav>
+    <div id="app">
+      <h1>Please Login to Continue</h1>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit
+        voluptatibus dolorem eius expedita suscipit voluptates tenetur autem cum
+        debitis doloribus? Animi vero sunt delectus veritatis voluptatibus
+        voluptate illo placeat inventore?
+      </p>
+      <p>
+        Repudiandae nobis reiciendis pariatur accusantium praesentium, aliquid
+        vero ut totam amet neque veniam dignissimos, provident et eligendi
+        dolorum laborum facilis placeat sint optio tenetur? Recusandae velit
+        quia impedit numquam officia?
+      </p>
+      <p>
+        Saepe, veritatis beatae ut non eligendi debitis ullam distinctio.
+        Beatae, consectetur illum labore dolores eum quo excepturi cumque
+        mollitia repellendus illo ullam, nulla nostrum perferendis sapiente
+        numquam minus itaque tempora.
+      </p>
+      <p>
+        Repellendus modi, blanditiis dignissimos vel assumenda libero quod
+        dolore atque natus harum. Labore eveniet nostrum ab amet autem nesciunt,
+        deleniti tempora aspernatur! Laudantium et perspiciatis praesentium quas
+        qui at provident.
+      </p>
+    </div>
 
-    <div id="modal">
-        <div class="modalBackground close">
-            <div id="modalContent">
-                <div class="close closeButton">X</div>
-                <h3>username:</h3>
-                <input type="text" name="name" id="name" placeholder="user123">
-                <h3>password:</h3>
-                <input type="password" name="password" id="password" placeholder="****">
-                <button id="submit">Login</button>
-            </div>
-            <div id="modalSuccess">
-                <h2>Logged In! Redirecting...</h2>
-            </div>
+    <div id="modal" class="hidden">
+      <div class="modalBackground close"></div>
+      <div id="modalContent" class="openModalContent">
+        <div class="close closeButton">X</div>
+        <div class="inputBox">
+          <h3>username:</h3>
+          <input type="text" name="name" id="name" placeholder="user123" />
         </div>
+        <div class="inputBox">
+          <h3>password:</h3>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="****"
+          />
+        </div>
+        <button id="submit">Login</button>
+      </div>
+      <div id="modalSuccess" class="hidden">
+        <h2>Logged In! Redirecting...</h2>
+      </div>
     </div>
 
     <script src="lib/jquery-3.7.1.min.js"></script>
     <script type="module" src="services/services.js"></script>
     <script type="module" src="app/app.js"></script>
-</body>
+  </body>
 </html>
