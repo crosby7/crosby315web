@@ -1,0 +1,15 @@
+.homePage {
+  max-width: $site-width;
+  min-height: 800px;
+
+  //   background: url("../images/hero.jpg") $site-red;
+  //   background-blend-mode: multiply;
+
+  background: url("../images/hero.jpg"),
+    linear-gradient(to left, $site-red 60%, $site-red 60%);
+
+  background-blend-mode: overlay;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
