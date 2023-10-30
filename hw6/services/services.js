@@ -13,15 +13,21 @@ export function changeRoute() {
 
     if (pageID != '') {
         $.get(`pages/${pageID}.html`, function (data) {
-         $('#app').html(data);
-        });
+            $('#app').html(data);
+           })
+           .fail(function () {
+            alert("Error 404, page not found");
+           });
     } 
-    else if (pageID == 'home') {
+    else if (pageID == 'home' || pageID == '') {
         $.get(`pages/home.html`, function (data) {
          $('#app').html(data);
-        });
+        })
+        .fail(function () {
+            alert("Error 404, page not found");
+           });
     }
     else {
-        alert("Error 404, page not found")
+        alert("Error 404, page not found");
     }
 }
