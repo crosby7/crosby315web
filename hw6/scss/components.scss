@@ -110,7 +110,7 @@ li:hover {
 
 .footer {
   position: absolute;
-  bottom: 0;
+  top: calc(800px - 70px);
   left: 0;
   right: 0;
   height: 70px;
@@ -230,6 +230,7 @@ li:hover {
   .footer {
     height: 80px;
     display: block;
+    top: calc(800px - 80px);
     
     .mobileFooter {
       width: 100%;

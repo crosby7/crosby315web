@@ -105,7 +105,7 @@ li:hover {
 
 .footer {
   position: absolute;
-  bottom: 0;
+  top: 730px;
   left: 0;
   right: 0;
   height: 70px;
@@ -195,6 +195,7 @@ li:hover {
   .footer {
     height: 80px;
     display: block;
+    top: 720px;
   }
   .footer .mobileFooter {
     width: 100%;
@@ -385,8 +386,20 @@ li:hover {
 
 @media (max-width: 768px) {
   .loginPage {
-    height: 1000px;
     flex-direction: column;
+    padding-bottom: 170px;
+  }
+  .loginPage .loginSection {
+    height: 160px;
+  }
+  .loginPage .signUpSection {
+    height: 180px;
+  }
+  .loginPage h1 {
+    margin-bottom: 30px;
+  }
+  .loginPage input {
+    margin-bottom: 30px;
   }
 }
 
