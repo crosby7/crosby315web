@@ -1,15 +1,16 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { changeRoute, lastPageLoaded, loginNav } from "../dist/services/services.js";
+
 
 const firebaseApp = initializeApp({
-apiKey: "AIzaSyB6EJ9XEpVW0ECBwQdaBGqBKe5vkuIjgA8",
-authDomain: "n423-data-todd.firebaseapp.com",
-databaseURL: "https://n423-data-todd.firebaseio.com",
-projectId: "n423-data-todd",
-storageBucket: "n423-data-todd.appspot.com",
-messagingSenderId: "125541102309",
-appId: "1:125541102309:web:1b03c685f82b07ea1f1a0c",
-measurementId: "G-BMCJDJMM21",
+    apiKey: "AIzaSyBzZQsPdoefcWyPm4MKHPTEBeTnxmsRslI",
+    authDomain: "n315-cc.firebaseapp.com",
+    projectId: "n315-cc",
+    storageBucket: "n315-cc.appspot.com",
+    messagingSenderId: "124018914014",
+    appId: "1:124018914014:web:df6f512caa8a82d124484f",
+    measurementId: "G-XEWMTQLJXY"
 });
 
 const auth = getAuth(firebaseApp);
@@ -30,12 +31,7 @@ console.log("No user");
 
 });
 
-
-
-
-
-import {changeRoute} from "../dist/services/services.js";
-
+// App.js 
 var mobileBtn = document.getElementById("hamburger");
 console.log(mobileBtn);
 
@@ -48,6 +44,64 @@ function initListeners() {
     window.addEventListener("hashchange", changeRoute);
 }
 
+export function accountHandler(pageID) {
+    // Sign up inputs
+    let emailAddress = $("#emailSU").val();
+    let firstName = $("#firstNameSU").val();
+    let lastName = $("#lastNameSU").val();
+    let password = $("#passwordSU").val();
+
+    // Login Inputs
+    let loginEmail = $("#loginEmail").val();
+    let loginPassword = $("#loginPassword").val();
+
+    if (pageID === 'loginPage')
+    {
+        if (loginNav[0].innerHTML === 'Logout')
+        {
+            signOut(auth);
+        }
+    }
+    if (pageID === 'signUp')
+    {
+        createUserWithEmailAndPassword(auth, emailAddress, password)
+        .then((userCredential) => {
+        // Signed up 
+        const user = userCredential.user;
+        currentUser.displayName = `${firstName}`;
+        console.log(user);
+
+        loginNav.forEach((element) => {
+            innerHTML = 'Logout';
+        });
+        // ...
+        })
+        .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+        // ..
+        });
+    }
+    else if (pageID === 'login')
+    {
+        signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+
+            loginNav.forEach((element) => {
+                innerHTML = 'Logout';
+            });
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage);
+        });
+    }
+    window.location.hash = `${lastPageLoaded}`;
+}
 
 $(document).ready(function () {
     initListeners();

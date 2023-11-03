@@ -1,3 +1,5 @@
+export var lastPageLoaded = '#home';
+export var loginNav = document.getElementsByClassName("loginLogout");
 
 export function toggleMenu(btn)
 {
@@ -11,25 +13,25 @@ export function changeRoute() {
     let hashTag = window.location.hash;
     let pageID = hashTag.replace('#', '');
 
-    if (pageID != '') {
-        $.get(`pages/${pageID}.html`, function (data) {
-            $('#app').html(data);
-           })
-           .fail(function () {
-            alert("Error 404, page not found");
-           });
-    } 
-    else if (pageID == 'home' || pageID == '') {
-        $.get(`pages/home.html`, function (data) {
-         $('#app').html(data);
-        })
-        .fail(function () {
-            alert("Error 404, page not found");
-           });
-    }
-    else {
-        alert("Error 404, page not found");
-    }
+    // if (pageID != '') {
+    //     $.get(`pages/${pageID}.html`, function (data) {
+    //         $('#app').html(data);
+    //        })
+    //        .fail(function () {
+    //         alert("Error 404, page not found");
+    //        });
+    // } 
+    // else if (pageID == 'home' || pageID == '') {
+    //     $.get(`pages/home.html`, function (data) {
+    //      $('#app').html(data);
+    //     })
+    //     .fail(function () {
+    //         alert("Error 404, page not found");
+    //        });
+    // }
+    // else {
+    //     alert("Error 404, page not found");
+    // }
 
     switch (pageID) {
         case '':
@@ -40,13 +42,26 @@ export function changeRoute() {
                .fail(function () {
                    alert("Error 404, page not found");
                   });
+            lastPageLoaded = '#home';
             break;
         case 'signUp':
-            createNewUser();
-            break;
         case 'login':
-            loginUser();
+            authenticate.accountHandler(pageID);
+            $.get(`pages/${lastPageLoaded}.html`, function (data) {
+                $('#app').html(data);
+               })
+               .fail(function () {
+                   alert("Error 404, page not found");
+                  });
             break;
+        case 'loginPage':
+            authenticate.accountHandler(pageID);
+            $.get(`pages/loginPage.html`, function (data) {
+                $('#app').html(data);
+               })
+               .fail(function () {
+                   alert("Error 404, page not found");
+                  });
         default:
             $.get(`pages/${pageID}.html`, function (data) {
                 $('#app').html(data);
@@ -54,6 +69,7 @@ export function changeRoute() {
                .fail(function () {
                 alert("Error 404, page not found");
                });
+            lastPageLoaded = pageID;
             break;
     }
 }
