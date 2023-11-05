@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { changeRoute, lastPageLoaded, loginNav } from "../dist/services/services.js";
+import { changeRoute, lastPageLoaded, loginNav, loginStatus } from "../dist/services/services.js";
 
 
 const firebaseApp = initializeApp({
@@ -45,6 +45,23 @@ function initListeners() {
 }
 
 export function accountHandler(pageID) {
+    console.log(auth.currentUserser);
+    if (pageID === 'loginPage')
+    {
+        if (loginNav[0].innerHTML === 'Logout')
+        {
+            signOut(auth);
+            loginNav.forEach((element) => {
+                element.innerHTML = 'Login';
+            })
+            return;
+        }
+        else
+        {
+            return;
+        }
+    }
+
     // Sign up inputs
     let emailAddress = $("#emailSU").val();
     let firstName = $("#firstNameSU").val();
@@ -55,25 +72,21 @@ export function accountHandler(pageID) {
     let loginEmail = $("#loginEmail").val();
     let loginPassword = $("#loginPassword").val();
 
-    if (pageID === 'loginPage')
-    {
-        if (loginNav[0].innerHTML === 'Logout')
-        {
-            signOut(auth);
-        }
-    }
     if (pageID === 'signUp')
     {
         createUserWithEmailAndPassword(auth, emailAddress, password)
         .then((userCredential) => {
         // Signed up 
         const user = userCredential.user;
-        currentUser.displayName = `${firstName}`;
+        user.displayName = `${firstName}`;
         console.log(user);
 
         loginNav.forEach((element) => {
-            innerHTML = 'Logout';
+            element.innerHTML = 'Logout';
+            console.log(element);
         });
+        window.location.hash = `${lastPageLoaded}`;
+
         // ...
         })
         .catch((error) => {
@@ -91,8 +104,10 @@ export function accountHandler(pageID) {
             console.log(user);
 
             loginNav.forEach((element) => {
-                innerHTML = 'Logout';
+                element.innerHTML = 'Logout';
+                console.log(element);
             });
+            window.location.hash = `${lastPageLoaded}`;
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -100,7 +115,6 @@ export function accountHandler(pageID) {
             alert(errorMessage);
         });
     }
-    window.location.hash = `${lastPageLoaded}`;
 }
 
 $(document).ready(function () {

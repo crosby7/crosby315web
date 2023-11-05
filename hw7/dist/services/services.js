@@ -1,6 +1,12 @@
-export var lastPageLoaded = '#home';
-export var loginNav = document.getElementsByClassName("loginLogout");
+export var lastPageLoaded = 'home';
+var navCollection = document.getElementsByClassName("loginLogout");
+export var loginNav = [];
+export var loginStatus = false;
 
+
+for (let i = 0; i < navCollection.length; i++) {
+    loginNav[i] = navCollection[i];
+}
 export function toggleMenu(btn)
 {
     console.log("class toggle now v");
@@ -42,17 +48,23 @@ export function changeRoute() {
                .fail(function () {
                    alert("Error 404, page not found");
                   });
-            lastPageLoaded = '#home';
+            lastPageLoaded = 'home';
             break;
         case 'signUp':
         case 'login':
+            console.log("services: attempting now");
             authenticate.accountHandler(pageID);
-            $.get(`pages/${lastPageLoaded}.html`, function (data) {
-                $('#app').html(data);
-               })
-               .fail(function () {
-                   alert("Error 404, page not found");
-                  });
+            console.log("now checking loginstatus: " + loginStatus);
+            if (loginStatus)
+            {
+                console.log("attempting last page load");
+                $.get(`pages/${lastPageLoaded}.html`, function (data) {
+                    $('#app').html(data);
+                   })
+                   .fail(function () {
+                       alert("Error 404, page not found");
+                      });
+            }
             break;
         case 'loginPage':
             authenticate.accountHandler(pageID);
@@ -62,6 +74,7 @@ export function changeRoute() {
                .fail(function () {
                    alert("Error 404, page not found");
                   });
+            break;
         default:
             $.get(`pages/${pageID}.html`, function (data) {
                 $('#app').html(data);
@@ -72,4 +85,5 @@ export function changeRoute() {
             lastPageLoaded = pageID;
             break;
     }
+    console.log("lastPage: " + lastPageLoaded);
 }
