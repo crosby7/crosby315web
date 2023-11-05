@@ -1,3 +1,23 @@
+@font-face {
+  font-family: "Caveat";
+  src: url("../fonts/Caveat-Regular.ttf");
+}
+@font-face {
+  font-family: "CaveatBold";
+  src: url("../fonts/Caveat-Bold.ttf");
+}
+@font-face {
+  font-family: "GillSans";
+  src: url("../fonts/GillSans.ttf");
+}
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Regular.ttf");
+}
+@font-face {
+  font-family: "LatoBlack";
+  src: url("../fonts/Lato-Black.ttf");
+}
 * {
   margin: 0;
   padding: 0;
@@ -25,6 +45,7 @@ h1, h2, h3, h4, h5, h6, p {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: "Caveat", Arial, Helvetica, sans-serif;
 }
 #navHolder ul {
   list-style: none;
@@ -116,6 +137,8 @@ li:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-style: italic;
 }
 .footer .mobileFooter {
   display: none;
@@ -272,12 +295,14 @@ li:hover {
 }
 .homePage .circles .circle1 h1 {
   font-size: 24px;
+  font-family: "Caveat", Arial, Helvetica, sans-serif;
 }
 .homePage .circles .circle1 p {
   font-size: 14px;
   width: 150px;
   text-align: center;
   margin-bottom: 0;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
 }
 .homePage .circles .circle2 {
   width: 160px;
@@ -299,6 +324,8 @@ li:hover {
   width: 110px;
   text-align: center;
   margin-bottom: 0;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-style: italic;
 }
 
 @media (max-width: 360px) {
@@ -351,23 +378,36 @@ li:hover {
   align-items: center;
   justify-content: space-between;
 }
-.loginPage h1 {
-  font-size: 30px;
+.loginPage .signUpText {
+  width: 100%;
   margin-bottom: 20px;
 }
+.loginPage .signUpText p {
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-style: italic;
+}
+.loginPage h1 {
+  width: 100%;
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-family: "LatoBlack", Arial, Helvetica, sans-serif;
+}
 .loginPage input {
+  width: 100%;
   font-size: 12px;
   margin-bottom: 50px;
   border: none;
   background: none;
   color: black;
   border-bottom: 3px solid black;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
 }
 .loginPage p {
   font-style: italic;
   margin-bottom: 0;
 }
 .loginPage .button {
+  font-family: "Caveat", Arial, Helvetica, sans-serif;
   width: 100%;
   height: 50px;
   display: flex;

@@ -27,18 +27,32 @@
         justify-content: space-between;
     }
 
+    .signUpText {
+        width: 100%;
+        margin-bottom: 20px;
+
+        p {
+            font-family: "Lato",Arial, Helvetica, sans-serif;
+            font-style: italic;
+        }
+    }
+
     h1 {
+        width: 100%;
         font-size: 30px;
         margin-bottom: 20px;
+        font-family: "LatoBlack", Arial, Helvetica, sans-serif;
     }
 
     input {
+        width: 100%;
         font-size: 12px;
         margin-bottom: 50px;
         border: none;
         background: none;
         color: black;
         border-bottom: 3px solid black;
+        font-family: "Lato", Arial, Helvetica, sans-serif;
     }
 
     p {
@@ -47,6 +61,7 @@
     }
 
     .button {
+        font-family: "Caveat", Arial, Helvetica, sans-serif;
         width: 100%;
         height: 50px;
         display: flex;

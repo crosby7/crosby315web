@@ -14,6 +14,9 @@
   align-items: center;
   justify-content: space-between;
 
+  font-family: "Caveat", Arial, Helvetica, sans-serif;
+
+
   ul {
     list-style: none;
     height: 100%;
@@ -123,6 +126,9 @@ li:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-style: italic;
 
   .mobileFooter {
     display: none;
