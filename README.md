@@ -16,8 +16,8 @@ Remember that this will be a dynamic site at the end to plan your project accord
 - The navigation of the site must update with the correct information from the prototype.
 - Upload this to the web 4 server and Github and submit the Github link to this project.
 
-Access homework 7 by: 
-https://in-info-web4.informatics.iupui.edu/~camcrosb/hw7-315/
+Access homework 7 by:
+https://in-info-web4.informatics.iupui.edu/~camcrosb/hw7-315/dist/
 
 # Access homework from past weeks
 
