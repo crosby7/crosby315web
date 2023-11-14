@@ -1,0 +1,290 @@
+#navHolder {
+  max-width: $site-width;
+  margin: 0 auto;
+  height: 100px;
+  padding: 0 20px;
+  z-index: 99;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-family: "Caveat", Arial, Helvetica, sans-serif;
+
+
+  ul {
+    list-style: none;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    li {
+      margin-left: 10px;
+      padding: 5px;
+
+      a {
+        color: black;
+        text-decoration: none;
+        font-size: 26px;
+        font-weight: 500;
+      }
+    }
+
+    .login {
+      width: 158px;
+      height: 40px;
+      background-color: $site-yellow;
+      border: 2px solid $site-yellow;
+      border-radius: 20px;
+      filter: drop-shadow(0 10px rgba(0,0,0, 0.8));
+
+      a {
+        text-align: center;
+        display: block;
+      }
+    }
+  }
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+
+    div {
+      width: 35px;
+      height: 3px;
+      background-color: black;
+      margin: 6px 0;
+      border-radius: 3px;
+      transition: 0.4s;
+    }
+  }
+
+  .mobileMenu {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    height: calc(100vh - 100px);
+    width: 100%;
+    background-color: $site-pink;
+
+    li {
+      margin-bottom: 10px;
+      padding: 40px;
+      border-bottom: 2px solid black;
+      border-radius: 20px;
+    }
+  }
+
+  .open {
+    .mobileMenu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+li:hover {
+  transform: scale(1.1);
+  transition: 0.4s;
+}
+
+.open {
+  .bar1 {
+    transform: rotate(-45deg) translate(-6px, 6px);
+  }
+
+  .bar2 {
+    opacity: 0;
+  }
+
+  .bar3 {
+    transform: rotate(45deg) translate(-6px, -6px);
+  }
+}
+
+.footer {
+  position: absolute;
+  top: calc(800px - 70px);
+  left: 0;
+  right: 0;
+  height: 70px;
+  max-width: $site-width;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  z-index: 99;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-style: italic;
+
+  .mobileFooter {
+    display: none;
+  }
+
+  #mobileLinks, #smallLinks {
+    display: none;
+  }
+
+
+  .links {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+      text-decoration: none;
+      color: black;
+      font-size: 15px;
+      font-style: italic;
+    }
+
+  }
+
+
+}
+
+
+.copy {
+  font-style: italic;
+  font-size: 15px;
+}
+
+.socials {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .footer {
+    .links {
+      width: 500px;
+    }
+  }
+  .socials {
+    width: 60px;
+
+    a {
+      margin-left: 5px;
+    }
+  }
+}
+
+@media (max-width: $tablet-width) {
+  nav {
+    display: none;
+  }
+
+  #navHolder {
+    .hamburger {
+      display: block;
+    }
+  }
+
+  .footer {
+    .links {
+      width: 400px;
+      
+      a {
+        font-size: 10px;
+      }
+    }
+  }
+  .copy {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 550px) {
+  .footer {
+    .links {
+      width: 350px;
+
+      a {
+        font-size: 9px;
+      }
+    }
+  }
+  .copy {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: $phone-width) {
+  .footer {
+    height: 80px;
+    display: block;
+    top: calc(800px - 80px);
+    
+    .mobileFooter {
+      width: 100%;
+      margin: 0 auto 16px auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .copy {
+        display: inline;
+      }
+
+      .socials {
+        display: flex;
+      }
+    }
+
+    .mobileLinks {
+      width: 100%;
+      margin-bottom: 10px;
+      
+    
+      a {
+        font-size: 10px;
+        margin-right: 10px;
+      }
+    }
+
+    #mobileLinks {
+      display: flex;
+    }
+
+    #smallLinks {
+      display: flex;
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .copy {
+      display: none;
+    }
+
+    .desktopLinks {
+      display: none;
+    }
+
+    .socials {
+      display: none;
+    }
+  }
+}
