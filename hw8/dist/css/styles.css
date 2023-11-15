@@ -396,13 +396,44 @@ li:hover {
   font-family: "Caveat", Arial, Helvetica, sans-serif;
   font-weight: bold;
   margin-top: 130px;
-  padding-left: 80px;
+  margin-left: 80px;
 }
 .browsePage .cardHolder {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
+}
+.browsePage .cardHolder #noRecipes {
+  width: 530px;
+  height: 330px;
+  border: 4px solid black;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.browsePage .cardHolder #noRecipes .createButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  border: 2px solid black;
+  border-radius: 50%;
+  font-weight: bold;
+}
+.browsePage .cardHolder #noRecipes h3 {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family: "LatoBlack", Arial, Helvetica, sans-serif;
 }
 .browsePage .cardHolder .recipeCard {
   max-width: 530px;
@@ -462,6 +493,35 @@ li:hover {
   font-family: "Lato", Arial, Helvetica, sans-serif;
 }
 
+@media (max-width: 560px) {
+  .browsePage .browseHeader {
+    font-size: 30px;
+    margin-left: 20px;
+  }
+  .browsePage .cardHolder .recipeCard {
+    flex-direction: column;
+    max-width: 90%;
+    height: 500px;
+  }
+  .browsePage .cardHolder .recipeCard .cardImage {
+    width: 100%;
+    height: 250px;
+  }
+  .browsePage .cardHolder .recipeCard .cardInfo {
+    width: 100%;
+    height: 250px;
+  }
+  .browsePage .cardHolder .recipeCard .cardInfo h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  .browsePage .cardHolder .recipeCard .cardInfo p {
+    margin-bottom: 5px;
+  }
+  .browsePage .cardHolder .recipeCard .cardInfo .cardDetails {
+    margin-bottom: 10px;
+  }
+}
 .loginPage {
   max-width: 1280px;
   min-height: 800px;
