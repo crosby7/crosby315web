@@ -16,7 +16,6 @@
 
   font-family: "Caveat", Arial, Helvetica, sans-serif;
 
-
   ul {
     list-style: none;
     height: 100%;
@@ -43,7 +42,7 @@
       background-color: $site-yellow;
       border: 2px solid $site-yellow;
       border-radius: 20px;
-      filter: drop-shadow(0 10px rgba(0,0,0, 0.8));
+      filter: drop-shadow(0 10px rgba(0, 0, 0, 0.8));
 
       a {
         text-align: center;
@@ -113,7 +112,8 @@ li:hover {
 
 .footer {
   position: absolute;
-  top: calc(800px - 70px);
+  //top: calc(100% - 70px);
+  bottom: 0;
   left: 0;
   right: 0;
   height: 70px;
@@ -134,10 +134,10 @@ li:hover {
     display: none;
   }
 
-  #mobileLinks, #smallLinks {
+  #mobileLinks,
+  #smallLinks {
     display: none;
   }
-
 
   .links {
     width: 50%;
@@ -151,12 +151,8 @@ li:hover {
       font-size: 15px;
       font-style: italic;
     }
-
   }
-
-
 }
-
 
 .copy {
   font-style: italic;
@@ -206,7 +202,7 @@ li:hover {
   .footer {
     .links {
       width: 400px;
-      
+
       a {
         font-size: 10px;
       }
@@ -236,8 +232,8 @@ li:hover {
   .footer {
     height: 80px;
     display: block;
-    top: calc(800px - 80px);
-    
+    //top: calc(800px - 80px);
+
     .mobileFooter {
       width: 100%;
       margin: 0 auto 16px auto;
@@ -257,8 +253,7 @@ li:hover {
     .mobileLinks {
       width: 100%;
       margin-bottom: 10px;
-      
-    
+
       a {
         font-size: 10px;
         margin-right: 10px;

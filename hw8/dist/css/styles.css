@@ -24,14 +24,35 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin-bottom: 16px;
 }
 
+.contentWrap {
+  position: relative;
+  min-height: 100vh;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+@media (max-width: 360px) {
+  #app {
+    padding-bottom: 80px;
+  }
+}
 #navHolder {
   max-width: 1280px;
   margin: 0 auto;
@@ -126,7 +147,7 @@ li:hover {
 
 .footer {
   position: absolute;
-  top: 730px;
+  bottom: 0;
   left: 0;
   right: 0;
   height: 70px;
@@ -143,7 +164,8 @@ li:hover {
 .footer .mobileFooter {
   display: none;
 }
-.footer #mobileLinks, .footer #smallLinks {
+.footer #mobileLinks,
+.footer #smallLinks {
   display: none;
 }
 .footer .links {
@@ -218,7 +240,6 @@ li:hover {
   .footer {
     height: 80px;
     display: block;
-    top: 720px;
   }
   .footer .mobileFooter {
     width: 100%;
@@ -440,6 +461,102 @@ li:hover {
   }
   .loginPage input {
     margin-bottom: 30px;
+  }
+}
+.formHolder {
+  max-width: 900px;
+  padding: 20px 0 70px 0;
+  margin: 100px auto 0 auto;
+}
+.formHolder h1 {
+  font-family: "Caveat", Arial, Helvetica, sans-serif;
+}
+.formHolder h3 {
+  font-family: "LatoBlack";
+}
+.formHolder input {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  height: 50px;
+  border: none;
+  border-bottom: 2px solid black;
+  padding: 20px 0 0 2px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-weight: 100;
+}
+.formHolder .formTop,
+.formHolder .formIngredients,
+.formHolder .formInstructions {
+  position: relative;
+}
+.formHolder .formTop .imageBtn {
+  width: 90px;
+  height: 30px;
+  background-color: #EFA7A7;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  cursor: pointer;
+  top: 15px;
+  right: 0;
+  font-family: "Caveat", Arial, Helvetica, sans-serif;
+}
+.formHolder .formIngredients {
+  margin: 100px 0;
+}
+.formHolder .submitBtn {
+  width: 150px;
+  height: 50px;
+  background-color: #EFA7A7;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Caveat", Arial, Helvetica, sans-serif;
+  font-size: 25px;
+}
+.formHolder .plusBtn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #EFA7A7;
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  .formHolder {
+    padding: 20px 20px 70px 20px;
+  }
+  .formHolder h1 {
+    text-align: right;
+  }
+}
+@media (max-width: 360px) {
+  .formHolder {
+    padding: 20px 20px 80px 20px;
+  }
+  .formHolder h1 {
+    font-size: 20px;
+  }
+  .formHolder h3 {
+    font-size: 16px;
+  }
+  .formHolder input {
+    font-size: 14px;
   }
 }
 
