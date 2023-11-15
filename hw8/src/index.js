@@ -18,17 +18,19 @@ const auth = getAuth(firebaseApp);
 // detect auth state
 
 onAuthStateChanged(auth, (user) => {
-
-if (user != null) {
-
-console.log("logged in");
-
-} else {
-
-console.log("No user");
-
-}
-
+    if (user != null) 
+    {
+        console.log("user logged in");
+        $(".yourRecipes").removeClass("hide");
+        loginNav.forEach((element) => {
+            element.innerHTML = 'Logout';
+        });
+    } 
+    else 
+    {
+        console.log("no user");
+        $(".yourRecipes").addClass("hide");
+    }
 });
 
 // App.js 
@@ -83,7 +85,6 @@ export function accountHandler(pageID) {
 
         loginNav.forEach((element) => {
             element.innerHTML = 'Logout';
-            console.log(element);
         });
         window.location.hash = `${lastPageLoaded}`;
 
@@ -105,7 +106,6 @@ export function accountHandler(pageID) {
 
             loginNav.forEach((element) => {
                 element.innerHTML = 'Logout';
-                console.log(element);
             });
             window.location.hash = `${lastPageLoaded}`;
         })

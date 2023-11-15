@@ -1,0 +1,90 @@
+.browsePage {
+    max-width: $site-width;
+    padding: 20px 0 70px 0;
+    margin: 0 auto;
+
+    background: url("../images/recipe-hero.jpg"),
+    linear-gradient(to left, $site-green 100%, $site-green 100%);
+
+    background-blend-mode: multiply, overlay;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .browseHeader {
+        font-family: "Caveat", Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        margin-top: 130px;
+        padding-left: 80px;
+    }
+
+    .cardHolder {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .recipeCard {
+            max-width: 530px;
+            height: 330px;
+            margin-bottom: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .cardImage {
+                width: 300px;
+                height: 270px;
+                border-radius: 15px;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .cardInfo {
+                width: 230px;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                height: 270px;
+                border-radius: 15px;
+                padding: 25px 0;
+
+                h3 {
+                    font-size: 20px;
+                    margin: 0;
+                    font-family: "LatoBlack", Arial, Helvetica, sans-serif;
+                    border-bottom: 2px solid black;
+                }
+                p {
+                    width: 60%;
+                    font-size: 10px;
+                    margin: 0;
+                    font-family: "Lato", Arial, Helvetica, sans-serif;
+                }
+
+                .cardDetails {
+                    width: 60%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img {
+                        width: 25px;
+                        height: 25px;
+                    }
+                    p {
+                        width: 46px;
+                        margin: 0 0 0 15px;
+                        font-family: "Lato", Arial, Helvetica, sans-serif;
+                    }
+                }
+            }
+        }
+    }
+}

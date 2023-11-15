@@ -65,6 +65,10 @@
     }
   }
 
+  .hide {
+    display: none;
+  }
+
   .mobileMenu {
     display: none;
     position: absolute;
@@ -196,6 +200,13 @@ li:hover {
   #navHolder {
     .hamburger {
       display: block;
+    }
+    ul {
+      .login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 

@@ -109,6 +109,9 @@ p {
   border-radius: 3px;
   transition: 0.4s;
 }
+#navHolder .hide {
+  display: none;
+}
 #navHolder .mobileMenu {
   display: none;
   position: absolute;
@@ -214,6 +217,11 @@ li:hover {
   }
   #navHolder .hamburger {
     display: block;
+  }
+  #navHolder ul .login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .footer .links {
     width: 400px;
@@ -374,6 +382,86 @@ li:hover {
     font-size: 9px;
   }
 }
+.browsePage {
+  max-width: 1280px;
+  padding: 20px 0 70px 0;
+  margin: 0 auto;
+  background: url("../images/recipe-hero.jpg"), linear-gradient(to left, #A7E8BD 100%, #A7E8BD 100%);
+  background-blend-mode: multiply, overlay;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.browsePage .browseHeader {
+  font-family: "Caveat", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-top: 130px;
+  padding-left: 80px;
+}
+.browsePage .cardHolder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.browsePage .cardHolder .recipeCard {
+  max-width: 530px;
+  height: 330px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.browsePage .cardHolder .recipeCard .cardImage {
+  width: 300px;
+  height: 270px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.browsePage .cardHolder .recipeCard .cardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.browsePage .cardHolder .recipeCard .cardInfo {
+  width: 230px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 270px;
+  border-radius: 15px;
+  padding: 25px 0;
+}
+.browsePage .cardHolder .recipeCard .cardInfo h3 {
+  font-size: 20px;
+  margin: 0;
+  font-family: "LatoBlack", Arial, Helvetica, sans-serif;
+  border-bottom: 2px solid black;
+}
+.browsePage .cardHolder .recipeCard .cardInfo p {
+  width: 60%;
+  font-size: 10px;
+  margin: 0;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+.browsePage .cardHolder .recipeCard .cardInfo .cardDetails {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.browsePage .cardHolder .recipeCard .cardInfo .cardDetails img {
+  width: 25px;
+  height: 25px;
+}
+.browsePage .cardHolder .recipeCard .cardInfo .cardDetails p {
+  width: 46px;
+  margin: 0 0 0 15px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+
 .loginPage {
   max-width: 1280px;
   min-height: 800px;
