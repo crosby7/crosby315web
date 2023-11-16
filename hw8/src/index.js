@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { changeRoute, lastPageLoaded, loginNav, loginStatus } from "../dist/services/services.js";
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { changeRoute, lastPageLoaded, loginNav } from "../dist/services/services.js";
 
+export var userName;
 
 const firebaseApp = initializeApp({
     apiKey: "AIzaSyBzZQsPdoefcWyPm4MKHPTEBeTnxmsRslI",
@@ -21,10 +22,14 @@ onAuthStateChanged(auth, (user) => {
     if (user != null) 
     {
         console.log("user logged in");
+        console.log("authstate: ", user);
         $(".yourRecipes").removeClass("hide");
         loginNav.forEach((element) => {
             element.innerHTML = 'Logout';
         });
+
+        userName = auth.currentUser.displayName;
+        console.log("username in auth: " + userName);
     } 
     else 
     {
@@ -80,8 +85,16 @@ export function accountHandler(pageID) {
         .then((userCredential) => {
         // Signed up 
         const user = userCredential.user;
-        user.displayName = `${firstName}`;
-        console.log(user);
+
+        updateProfile(auth.currentUser, {
+            displayName: firstName
+        }).catch((error) => {
+            console.log(error);
+        })
+
+        console.log("sign up username: " + user.displayName);
+
+
 
         loginNav.forEach((element) => {
             element.innerHTML = 'Logout';
@@ -102,7 +115,6 @@ export function accountHandler(pageID) {
         signInWithEmailAndPassword(auth, loginEmail, loginPassword)
         .then((userCredential) => {
             const user = userCredential.user;
-            console.log(user);
 
             loginNav.forEach((element) => {
                 element.innerHTML = 'Logout';
