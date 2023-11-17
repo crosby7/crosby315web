@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
-import { changeRoute, lastPageLoaded, loginNav } from "../dist/services/services.js";
+import { changeRoute, lastPageLoaded, loginNav, addRow, addRecipe, viewRecipe } from "../dist/services/services.js";
 
 export var userName;
 
@@ -35,6 +35,7 @@ onAuthStateChanged(auth, (user) => {
     {
         console.log("no user");
         $(".yourRecipes").addClass("hide");
+        userName = null;
     }
 });
 
@@ -48,7 +49,38 @@ function initListeners() {
         mobileBtn.classList.toggle("open");
     });
 
+    $(".cancelBtn").on("click", () => {
+        window.location.hash = "home";
+        $(".recipeModal").toggleClass("hide");
+    })
+
     window.addEventListener("hashchange", changeRoute);
+}
+
+export function initFormListeners() {
+    $(".imageBtn").on("click", () => {
+        $("#imagePath").val("https://picsum.photos/300/270");
+    })
+    $(".ingredientBtn").on("click", function () {
+        addRow(".formIngredients");
+    })
+    $(".instructionBtn").on("click", function () {
+        addRow(".formInstructions");
+    })
+    $(".submitBtn").on("click", function () {
+        addRecipe();
+    })
+}
+
+export function initRecipesListeners() {
+    console.log("init recipes list");
+    $("#noRecipes").on("click", function () {
+        window.location.hash = "create";
+    })
+    $(".viewBtn").on("click", function () {
+        let recipeIndex = $(this).parent().attr("data-index")
+        //viewRecipe(recipeIndex);
+    })
 }
 
 export function accountHandler(pageID) {

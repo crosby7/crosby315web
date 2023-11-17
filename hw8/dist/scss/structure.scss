@@ -45,6 +45,10 @@ p {
 .contentWrap {
   position: relative;
   min-height: 100vh;
+
+  .hide {
+    display: none;
+  }
 }
 
 #app {
