@@ -76,7 +76,10 @@ export function changeRoute() {
                     setModal();
                     setTimeout(placeRecipes, 100);
                 }
-                setTimeout(initRecipesListeners, 100);
+                setTimeout(function() {
+                    $("#viewHeader").html(`Hey ${userName}, here are your recipes!`);
+                }, 100);
+                setTimeout(initRecipesListeners, 50);
                 lastPageLoaded = pageID;
             default:
                 $.get(`pages/${pageID}.html`, function (data) {

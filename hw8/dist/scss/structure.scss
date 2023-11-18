@@ -43,6 +43,8 @@ p {
 }
 
 .contentWrap {
+  max-width: $site-width;
+  margin: 0 auto;
   position: relative;
   min-height: 100vh;
 

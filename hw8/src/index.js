@@ -54,6 +54,10 @@ function initListeners() {
         $(".recipeModal").toggleClass("hide");
     })
 
+    $(".cancelDelete").on("click", () => {
+        $(".deleteModal").toggleClass("hide");
+    })
+
     $(".confirmDelete").on("click", () => {
         deleteRecipe();
     })
@@ -77,7 +81,6 @@ export function initFormListeners() {
 }
 
 export function initRecipesListeners() {
-    console.log("init recipes list");
     $("#noRecipes").on("click", function () {
         window.location.hash = "create";
     })

@@ -40,6 +40,8 @@ p {
 }
 
 .contentWrap {
+  max-width: 1280px;
+  margin: 0 auto;
   position: relative;
   min-height: 100vh;
 }
@@ -160,7 +162,7 @@ li:hover {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
-  z-index: 99;
+  z-index: 90;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -228,6 +230,8 @@ li:hover {
   padding: 30px 0;
 }
 .modal .modalContent h1 {
+  font-size: 30px;
+  text-align: center;
   font-family: "Caveat", Arial, Helvetica, sans-serif;
 }
 .modal .modalContent .loader {
@@ -260,9 +264,21 @@ li:hover {
   cursor: pointer;
 }
 .modal .modalContent .modalContainer {
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+.modal .modalContent .modalContainer .cancelDelete {
+  width: 100px;
+  height: 50px;
+  border: 2px solid #A7E8BD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "LatoBlack", Arial, Helvetica, sans-serif;
+  border-radius: 20px;
+  cursor: pointer;
 }
 .modal .modalContent .modalContainer .confirmDelete {
   width: 100px;
@@ -276,9 +292,88 @@ li:hover {
   cursor: pointer;
   background-color: #F25C54;
   color: white;
+  text-align: center;
 }
 
-@media (max-width: 1050px) {
+.viewRecipe {
+  position: absolute;
+  background-color: antiquewhite;
+  z-index: 90;
+  top: 0;
+  bottom: 70px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.viewRecipe h3 {
+  font-size: 25px;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  font-family: "LatoBlack", Arial, Helvetica, sans-serif;
+}
+.viewRecipe .mainView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.viewRecipe .mainView .mainImg {
+  width: 460px;
+  height: 420px;
+  margin-right: 100px;
+  position: relative;
+}
+.viewRecipe .mainView .mainImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.viewRecipe .mainView .mainImg .recipeNameView {
+  font-size: 25px;
+  width: 420px;
+  height: 33px;
+  position: absolute;
+  left: -230px;
+  top: 180px;
+  bottom: 0;
+  text-align: center;
+  transform: rotate(-90deg);
+  letter-spacing: 1px;
+  font-family: "LatoBlack", Arial, Helvetica, sans-serif;
+}
+.viewRecipe .mainView .mainInfo {
+  width: 460px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.viewRecipe .mainView .mainInfo h3 {
+  margin-bottom: 10px;
+}
+.viewRecipe .mainView .mainInfo h4 {
+  font-family: "LatoBlack", Arial, Helvetica, sans-serif;
+}
+.viewRecipe .mainView .mainInfo p {
+  font-family: "Caveat", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+.viewRecipe .listView {
+  width: 1000px;
+}
+.viewRecipe .listView p {
+  margin-bottom: 0;
+  font-family: "Caveat", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+.viewRecipe .editContainer {
+  width: 1000px;
+  margin-bottom: 100px;
+}
+
+@media (max-width: 1100px) {
   .footer .links {
     width: 500px;
   }
@@ -287,6 +382,20 @@ li:hover {
   }
   .socials a {
     margin-left: 5px;
+  }
+  .viewRecipe .mainView {
+    flex-direction: column;
+    max-width: 460px;
+  }
+  .viewRecipe .mainView .mainImg {
+    margin-bottom: 40px;
+    margin-right: 0;
+  }
+  .viewRecipe .listView {
+    width: 90%;
+  }
+  .viewRecipe .editContainer {
+    width: 90%;
   }
 }
 @media (max-width: 768px) {
@@ -320,6 +429,36 @@ li:hover {
   }
   .copy {
     font-size: 9px;
+  }
+  .viewRecipe h3 {
+    font-size: 20px;
+  }
+  .viewRecipe .mainView {
+    width: 90%;
+  }
+  .viewRecipe .mainView .mainImg {
+    width: 220px;
+    height: 200px;
+  }
+  .viewRecipe .mainView .mainImg .recipeNameView {
+    font-size: 20px;
+    top: 90px;
+    left: -220px;
+  }
+  .viewRecipe .mainView .mainInfo {
+    width: 100%;
+    height: 250px;
+  }
+  .viewRecipe .mainView .mainInfo h4 {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+  .viewRecipe .mainView .mainInfo p {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+  .viewRecipe .listView p {
+    font-size: 16px;
   }
 }
 @media (max-width: 360px) {
@@ -523,18 +662,6 @@ li:hover {
   align-items: center;
   justify-content: center;
 }
-.browsePage .cardHolder .recipeCard .recipesBtn {
-  width: 130px;
-  height: 42px;
-  background-color: #FFD972;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  cursor: pointer;
-  font-family: "Caveat", Arial, Helvetica, sans-serif;
-}
 .browsePage .cardHolder .recipeCard .viewBtn {
   position: absolute;
   top: calc(50% - 22px);
@@ -599,15 +726,38 @@ li:hover {
   font-family: "Lato", Arial, Helvetica, sans-serif;
 }
 
+.recipesBtn {
+  width: 130px;
+  height: 42px;
+  background-color: #FFD972;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  font-family: "Caveat", Arial, Helvetica, sans-serif;
+}
+
 @media (max-width: 560px) {
   .browsePage .browseHeader {
     font-size: 30px;
     margin-left: 20px;
   }
+  .browsePage .cardHolder #noRecipes {
+    max-width: 90%;
+  }
   .browsePage .cardHolder .recipeCard {
     flex-direction: column;
     max-width: 90%;
     height: 500px;
+  }
+  .browsePage .cardHolder .recipeCard .viewBtn {
+    left: calc(50% - 65px);
+    top: 20%;
+  }
+  .browsePage .cardHolder .recipeCard .offCardBtns {
+    width: 100%;
   }
   .browsePage .cardHolder .recipeCard .cardImage {
     width: 100%;
@@ -762,7 +912,7 @@ li:hover {
   margin: 100px 0;
 }
 .formHolder .submitBtn {
-  width: 150px;
+  width: 300px;
   height: 50px;
   background-color: #EFA7A7;
   margin: 30px auto;
