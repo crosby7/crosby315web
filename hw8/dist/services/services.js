@@ -125,6 +125,7 @@ function preparePage() {
 }
 
 export function addRow(divSrc) {
+
     if (divSrc === ".formIngredients")
     {
         $(divSrc).append(`<input type="text" id="ingred${initialIngredCount}" placeholder="Ingredient #${++initialIngredCount}" />`)
@@ -340,21 +341,39 @@ export function deleteRecipe(recipeIndex) {
 }
 
 export function setEditPage(recipeIndex) {
-    console.log(recipes[recipeIndex]);
-    console.log(recipes[recipeIndex].imagePath);
+    let editIngredCount = 3;
+    let editInstructCount = 3;
+
     $("#imagePath").val(recipes[recipeIndex].imagePath);
     $("#recipeName").val(recipes[recipeIndex].recipeName);
     $("#recipeDescription").val(recipes[recipeIndex].recipeDesc);
     $("#totalTime").val(recipes[recipeIndex].recipeTime);
     $("#servingSize").val(recipes[recipeIndex].recipeServings);
 
+
+    if (recipes[recipeIndex].ingredients.length > $(".formIngredients > input").length)
+    {
+        for (let i = 0; i < (recipes[recipeIndex].ingredients.length - $(".formIngredients > input").length); i++)
+        {
+            $(".formIngredients").append(`<input type="text" id="ingred${editIngredCount}" placeholder="Ingredient #${++editIngredCount}" />`);
+        }
+    }
+
+    if (recipes[recipeIndex].instructions.length > $(".formInstructions > input").length)
+    {
+        for (let i = 0; i < (recipes[recipeIndex].instructions.length - $(".formInstructions > input").length); i++)
+        {
+            $(".formInstructions").append(`<input type="text" id="instruct${editInstructCount}" placeholder="Instruction #${++editInstructCount}" />`);
+        }
+    }
+
     $(".formIngredients input").each(function (index, data) {
         let keyName = "ingredient" + index;
-        $(this).val(recipes[recipeIndex].ingredients[keyName]);
+        $(this).val(recipes[recipeIndex].ingredients[index][keyName]);
     });
 
     $(".formInstructions input").each(function (index, data) {
         let keyName = "instruction" + index;
-        $(this).val(recipes[recipeIndex].instructions[keyName]);
+        $(this).val(recipes[recipeIndex].instructions[index][keyName]);
     });
 } 
