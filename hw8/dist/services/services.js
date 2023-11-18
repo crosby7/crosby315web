@@ -27,6 +27,11 @@ export function changeRoute() {
     let pageID = hashTag.replace('#', '');
     $("#app").off("click", "**");
 
+    if (!$(".viewRecipe").hasClass("hide"))
+    {
+        $(".viewRecipe").toggleClass("hide");
+    }
+
     setTimeout(() => {
         switch (pageID) {
             case '':
@@ -70,7 +75,6 @@ export function changeRoute() {
                    .fail(function () {
                     alert("Error 404, page not found");
                    });
-                   console.log('recipe length: ' + recipes.length);
                 if (recipes.length != 0)
                 {
                     setModal();
@@ -81,6 +85,18 @@ export function changeRoute() {
                 }, 100);
                 setTimeout(initRecipesListeners, 50);
                 lastPageLoaded = pageID;
+                break;
+            case 'edit':
+                $.get(`pages/${pageID}.html`, function (data) {
+                    $('#app').html(data);
+                   })
+                   .fail(function () {
+                    alert("Error 404, page not found");
+                   });
+                setTimeout(function() {
+                    $("#editHeader").html(`Hey ${userName}, edit your recipe!`);
+                }, 100);
+                break;
             default:
                 $.get(`pages/${pageID}.html`, function (data) {
                     $('#app').html(data);
@@ -176,51 +192,169 @@ function setModal() {
 
 function placeRecipes() {
     console.log("placing recipes: ", recipes);
+    $(".cardHolder").html("");
     $("#noRecipes").remove();
-    $.each(recipes, (index, recipe) => {
-        $(".cardHolder").append(
-            `<div class="recipeCard" data-index="${index}" >
-            <div class="viewBtn recipesBtn">View</div>
-            <div class="offCardBtns"><div class="editBtn recipesBtn">Edit Recipe</div><div class="deleteBtn recipesBtn">Delete</div></div>
-            <div class="cardImage">
-                <img src="${recipe.imagePath}" alt="${recipe.recipeName}">
-            </div>
-            <div class="cardInfo">
-                <h3>${recipe.recipeName}</h3>
-                <p>${recipe.recipeDesc}</p>
-                    <div class="cardDetails">
-                        <img src="images/time.svg" alt="Time to Make">
-                        <p>${recipe.recipeTime}</p>
-                    </div>
-                    <div class="cardDetails">
-                        <img src="images/servings.svg" alt="Servings made">
-                        <p>${recipe.recipeServings}</p>
-                    </div>
-            </div>
-        </div>`
-        )
-        console.log($(".cardHolder").html());
-        if (index == recipes.length - 1)
-        {
-            setModal();
-            $(".cardHolder").append(`<div id="noRecipes">
-            <div class="createButton">+</div>
-            <h3>Click here to add more recipes!</h3>
-        </div>`);
-            initRecipesListeners();
-        }
-    })   
+    if (recipes.length != 0)
+    {
+        $.each(recipes, (index, recipe) => {
+            $(".cardHolder").append(
+                `<div class="recipeCard" data-index="${index}" >
+                <div class="viewBtn recipesBtn">View</div>
+                <div class="offCardBtns"><div class="editBtn recipesBtn">Edit Recipe</div><div class="deleteBtn recipesBtn">Delete</div></div>
+                <div class="cardImage">
+                    <img src="${recipe.imagePath}" alt="${recipe.recipeName}">
+                </div>
+                <div class="cardInfo">
+                    <h3>${recipe.recipeName}</h3>
+                    <p>${recipe.recipeDesc}</p>
+                        <div class="cardDetails">
+                            <img src="images/time.svg" alt="Time to Make">
+                            <p>${recipe.recipeTime}</p>
+                        </div>
+                        <div class="cardDetails">
+                            <img src="images/servings.svg" alt="Servings made">
+                            <p>${recipe.recipeServings}</p>
+                        </div>
+                </div>
+            </div>`
+            )
+            console.log("index:  " + index + " and recipes Length: " + recipes.length);
+            if ((index == recipes.length - 1) || recipes.length == 0)
+            {
+                $(".cardHolder").append(`<div id="noRecipes">
+                <div class="createButton">+</div>
+                <h3>Click here to add more recipes!</h3>
+            </div>`);
+                initRecipesListeners();
+                setTimeout(setModal, 100);
+            }
+        })  
+    } 
+    else
+    {
+        $(".cardHolder").append(`<div id="noRecipes">
+        <div class="createButton">+</div>
+        <h3>Click here to add more recipes!</h3>
+    </div>`);
+        initRecipesListeners();
+        setTimeout(setModal, 100);
+    }
 }
 
 export function viewRecipe(recipeIndex) {
     let selectedRecipe = recipes[recipeIndex];
-    //$(".viewRecipe").append()
+    let ingredientsString = "";
+    let instructionsString = "";
+
+    $.each(selectedRecipe.ingredients, (index, ingredient) => {
+        let keyName = "ingredient" + index;
+        ingredientsString += `<li>${ingredient[keyName]}</li>`;
+    });
+
+    $.each(selectedRecipe.instructions, (index, instruction) => {
+        let keyName = "instruction" + index;
+        instructionsString += `<li>${instruction[keyName]}</li>`;
+    });
+
+
+    
+    $(".viewRecipe").append(`<div class="mainView">
+    <div class="mainImg"><img src="${selectedRecipe.imagePath}" alt="${selectedRecipe.recipeName}"><h3 class="recipeNameView">${selectedRecipe.recipeName}</h3></div>
+    <div class="mainInfo">
+      <h3>Description</h3>
+      <p>${selectedRecipe.recipeDesc}</p>
+      <h4>Total Time:</h4>
+      <p>${selectedRecipe.recipeTime}</p>
+      <h4>Servings:</h4>
+      <p>${selectedRecipe.recipeServings}</p>
+    </div>
+  </div>
+  <div class="listView ingredView">
+    <h3>Ingredients:</h3>
+    <ul>${ingredientsString}</ul>
+    </div>
+  <div class="listView instructView"><h3>Instructions:</h3>
+  <ol>${instructionsString}</ol></div>
+  <div class="editContainer">
+    <div class="editButton recipesBtn">Edit Recipe</div>
+  </div>`)
+  $(".viewRecipe").toggleClass("hide");
 }
 
 export function editRecipe(recipeIndex) {
-    // Edit
+    let newRecipe = {};
+
+    let imagePath = $("#imagePath").val();
+    let recipeName = $("#recipeName").val();
+    let recipeDesc = $("#recipeDescription").val();
+    let recipeTime = $("#totalTime").val();
+    let recipeServings = $("#servingSize").val();
+
+    newRecipe.imagePath = imagePath;
+    newRecipe.recipeName = recipeName;
+    newRecipe.recipeDesc = recipeDesc;
+    newRecipe.recipeTime = recipeTime;
+    newRecipe.recipeServings = recipeServings;
+
+    newRecipe.ingredients = [];
+    $(".formIngredients input").each(function (index, data) {
+        var value = $(this).val();
+        if (value != "")
+        {
+            let keyName = "ingredient" + index;
+            let ingredObj = {};
+            ingredObj[keyName] = value;
+
+            newRecipe.ingredients.push(ingredObj);
+        }
+    });
+
+    newRecipe.instructions = [];
+    $(".formInstructions input").each(function (index, data) {
+        var value = $(this).val();
+        if (value != "")
+        {
+            let keyName = "instruction" + index;
+            let instructObj = {};
+            instructObj[keyName] = value;
+
+            newRecipe.instructions.push(instructObj);
+        }
+    })
+
+    if (newRecipe.recipeName != "")
+    {
+        console.log("newRecipe ", newRecipe);
+
+        window.location.hash = "recipes";
+        recipes[recipeIndex] = newRecipe;
+        console.log(recipes);
+    }
 }
 
 export function deleteRecipe(recipeIndex) {
-    // Delete
+    recipes.splice(recipeIndex, 1);
+    $(".deleteModal").toggleClass("hide");
+    setModal();
+    placeRecipes();
 }
+
+export function setEditPage(recipeIndex) {
+    console.log(recipes[recipeIndex]);
+    console.log(recipes[recipeIndex].imagePath);
+    $("#imagePath").val(recipes[recipeIndex].imagePath);
+    $("#recipeName").val(recipes[recipeIndex].recipeName);
+    $("#recipeDescription").val(recipes[recipeIndex].recipeDesc);
+    $("#totalTime").val(recipes[recipeIndex].recipeTime);
+    $("#servingSize").val(recipes[recipeIndex].recipeServings);
+
+    $(".formIngredients input").each(function (index, data) {
+        let keyName = "ingredient" + index;
+        $(this).val(recipes[recipeIndex].ingredients[keyName]);
+    });
+
+    $(".formInstructions input").each(function (index, data) {
+        let keyName = "instruction" + index;
+        $(this).val(recipes[recipeIndex].instructions[keyName]);
+    });
+} 

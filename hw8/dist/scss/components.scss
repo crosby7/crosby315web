@@ -95,7 +95,7 @@
   }
 }
 
-li:hover {
+#navHolder li:hover {
   transform: scale(1.1);
   transition: 0.4s;
 }
@@ -276,8 +276,9 @@ li:hover {
 
 .viewRecipe {
   position: absolute;
-  background-color: antiquewhite;
-  z-index: 90;
+  background-color: white;
+  padding-top: 100px;
+  z-index: 85;
   top: 0;
   bottom: 70px;
   left: 0;
@@ -353,10 +354,14 @@ li:hover {
   .listView {
     width: 1000px;
 
-    p {
+    li {
       margin-bottom: 0;
       font-family: "Caveat", Arial, Helvetica, sans-serif;
       font-size: 20px;
+    }
+
+    ul {
+      list-style: none;
     }
   }
 

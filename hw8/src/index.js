@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
-import { changeRoute, lastPageLoaded, loginNav, addRow, addRecipe, viewRecipe, editRecipe, deleteRecipe } from "../dist/services/services.js";
+import { changeRoute, lastPageLoaded, loginNav, addRow, addRecipe, viewRecipe, editRecipe, deleteRecipe, setEditPage } from "../dist/services/services.js";
 
 export var userName;
 
@@ -58,9 +58,7 @@ function initListeners() {
         $(".deleteModal").toggleClass("hide");
     })
 
-    $(".confirmDelete").on("click", () => {
-        deleteRecipe();
-    })
+    
 
     window.addEventListener("hashchange", changeRoute);
 }
@@ -75,7 +73,7 @@ export function initFormListeners() {
     $(".instructionBtn").on("click", function () {
         addRow(".formInstructions");
     })
-    $(".submitBtn").on("click", function () {
+    $(".submit").on("click", function () {
         addRecipe();
     })
 }
@@ -89,12 +87,26 @@ export function initRecipesListeners() {
         viewRecipe(recipeIndex);
     })
     $(".editBtn").on("click",function () {
-        let recipeIndex = $(this).parent().attr("data-index");
-        editRecipe(recipeIndex);
+        let recipeIndex = $(this).parent().parent().attr('data-index');
+        window.location.hash = "edit";
+        
+
+        setTimeout(function () {
+            setEditPage(recipeIndex);
+            $(".submitChanges").on("click", function () {
+                editRecipe(recipeIndex);
+            })
+        }, 1000);
     })
     $(".deleteBtn").on("click", () => {
         let recipeIndex = $(this).parent().attr("data-index");
+
         $(".deleteModal").toggleClass("hide");
+
+        $(".confirmDelete").on("click", () => {
+            deleteRecipe(recipeIndex);
+            $(".confirmDelete").off("click", "**");
+        })
     })
 }
 
