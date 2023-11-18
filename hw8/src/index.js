@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
-import { changeRoute, lastPageLoaded, loginNav, addRow, addRecipe, viewRecipe } from "../dist/services/services.js";
+import { changeRoute, lastPageLoaded, loginNav, addRow, addRecipe, viewRecipe, editRecipe, deleteRecipe } from "../dist/services/services.js";
 
 export var userName;
 
@@ -54,6 +54,10 @@ function initListeners() {
         $(".recipeModal").toggleClass("hide");
     })
 
+    $(".confirmDelete").on("click", () => {
+        deleteRecipe();
+    })
+
     window.addEventListener("hashchange", changeRoute);
 }
 
@@ -79,7 +83,15 @@ export function initRecipesListeners() {
     })
     $(".viewBtn").on("click", function () {
         let recipeIndex = $(this).parent().attr("data-index")
-        //viewRecipe(recipeIndex);
+        viewRecipe(recipeIndex);
+    })
+    $(".editBtn").on("click",function () {
+        let recipeIndex = $(this).parent().attr("data-index");
+        editRecipe(recipeIndex);
+    })
+    $(".deleteBtn").on("click", () => {
+        let recipeIndex = $(this).parent().attr("data-index");
+        $(".deleteModal").toggleClass("hide");
     })
 }
 

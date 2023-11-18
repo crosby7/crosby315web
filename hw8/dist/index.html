@@ -76,13 +76,23 @@
           /></a>
         </div>
       </div>
-      <div class="recipeModal hide">
+      <div class="recipeModal modal hide">
         <div class="modalContent">
           <h1>Loading Recipes...</h1>
           <div class="loader"></div>
           <div class="cancelBtn">Cancel</div>
         </div>
       </div>
+      <div class="deleteModal modal hide">
+        <div class="modalContent">
+          <h1>Are you sure you want to delete this recipe?</h1>
+          <div class="modalContainer">
+            <div class="cancelBtn">Cancel</div>
+            <div class="confirmDelete">Delete Recipe</div>
+          </div>
+        </div>
+      </div>
+      <div class="viewRecipe"></div>
     </div>
 
     <script src="lib/jquery-3.7.1.min.js"></script>

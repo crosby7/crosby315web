@@ -179,7 +179,7 @@ li:hover {
   }
 }
 
-.recipeModal {
+.modal {
   position: absolute;
   left: 0;
   top: 0;
@@ -227,6 +227,23 @@ li:hover {
     .cancelBtn {
       width: 100px;
       height: 50px;
+      border: 2px solid $site-green;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "LatoBlack", Arial, Helvetica, sans-serif;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .modalContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .confirmDelete {
+        width: 100px;
+      height: 50px;
       border: 2px solid $site-red;
       display: flex;
       align-items: center;
@@ -234,6 +251,9 @@ li:hover {
       font-family: "LatoBlack", Arial, Helvetica, sans-serif;
       border-radius: 20px;
       cursor: pointer;
+      background-color: $site-red;
+      color: white;
+      }
     }
   }
 }

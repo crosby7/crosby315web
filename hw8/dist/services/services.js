@@ -25,6 +25,7 @@ export function toggleMenu(btn)
 export function changeRoute() {
     let hashTag = window.location.hash;
     let pageID = hashTag.replace('#', '');
+    $("#app").off("click", "**");
 
     setTimeout(() => {
         switch (pageID) {
@@ -176,6 +177,8 @@ function placeRecipes() {
     $.each(recipes, (index, recipe) => {
         $(".cardHolder").append(
             `<div class="recipeCard" data-index="${index}" >
+            <div class="viewBtn recipesBtn">View</div>
+            <div class="offCardBtns"><div class="editBtn recipesBtn">Edit Recipe</div><div class="deleteBtn recipesBtn">Delete</div></div>
             <div class="cardImage">
                 <img src="${recipe.imagePath}" alt="${recipe.recipeName}">
             </div>
@@ -188,7 +191,7 @@ function placeRecipes() {
                     </div>
                     <div class="cardDetails">
                         <img src="images/servings.svg" alt="Servings made">
-                        <p>${recipe.recipeServings} servings</p>
+                        <p>${recipe.recipeServings}</p>
                     </div>
             </div>
         </div>`
@@ -203,6 +206,18 @@ function placeRecipes() {
         </div>`);
             initRecipesListeners();
         }
-    })
-    
+    })   
+}
+
+export function viewRecipe(recipeIndex) {
+    let selectedRecipe = recipes[recipeIndex];
+    //$(".viewRecipe").append()
+}
+
+export function editRecipe(recipeIndex) {
+    // Edit
+}
+
+export function deleteRecipe(recipeIndex) {
+    // Delete
 }

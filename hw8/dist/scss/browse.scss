@@ -64,10 +64,41 @@
             max-width: 530px;
             height: 330px;
             margin-bottom: 40px;
+            position: relative;
 
             display: flex;
             align-items: center;
             justify-content: center;
+
+            .recipesBtn {
+                width: 130px;
+                height: 42px;
+                background-color: $site-yellow;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 22px;
+                cursor: pointer;
+                font-family: "Caveat", Arial, Helvetica, sans-serif;
+            }
+
+            .viewBtn {
+                position: absolute;
+                top: calc(50% - 22px);
+                left: 85px;
+            }
+
+            .offCardBtns {
+                width: 300px;
+                position: absolute;
+                bottom: -20px;
+                left: 0;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+            }
 
             .cardImage {
                 width: 300px;
