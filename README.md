@@ -1,25 +1,31 @@
-## Assignment 7 - Cameron Crosby
+## Assignment 8 - Cameron Crosby
 
 # Purpose
 
-You will need to make the login page from the Jungle Cook prototype work with Firebase. You must let a user sign up and sign in with an email and a password. They must also see an updated navigation menu when they are logged in. 
-
-Remember that this will be a dynamic site at the end to plan your project accordingly.  
+Create a fully-functional CRUD application using MVC, SPD. Site is fully responsive and contains user feedback.
 
 
-# Task
+# Site Details
+- Single Page Document. Views are injected using a hashchange listener
+- Model-View-Controller. Data is stored in the model (services.js) and modified by the controller (index.js -> app.js)
+- User Feedback. Modals are implemented to hide loading and to confirm the users' intention to delete a recipe.
+- CRUD. Users can create a recipe, view their recipes in card layouts, select a recipe to view more details, edit their recipes to save alterations to the recipe, and delete a recipe from their recipes.
+- Authentication. Users can sign up and login using firebase email/password authentication. Their display name is updated on their profile and used in headers throughout the site. Nav is updated when user logs in (login becomes logout and "your recipes" is only displayed when logged in)
 
-- You must create the login page from the Jungle Cook prototype. 
-- Your login page must look identical to the prototype in all media, meaning it must be responsive. 
-- You must have the mobile menu working as well as the normal menu. 
-- You must use Firebase's authentication to allow a user to create an account using an email and a password. 
-- The navigation of the site must update with the correct information from the prototype.
-- Upload this to the web 4 server and Github and submit the Github link to this project.
+# Other notes
+- The detailed view of a recipe is a modal that pops up to display the information without a page load.
+- Upon editing/deleting a recipe, the recipe array is updated before loading the card view again. 
+- There is a card-sized button that allows users to add recipes. This is always the last card listed in the card view. 
+- Used webpack library to export relevant functions to services.js
+
+
+Access homework 8 by:
+https://in-info-web4.informatics.iupui.edu/~camcrosb/hw8-315/dist/
+
+# Access homework from past weeks
 
 Access homework 7 by:
 https://in-info-web4.informatics.iupui.edu/~camcrosb/hw7-315/dist/
-
-# Access homework from past weeks
 
 Access homework 6 by: 
 https://in-info-web4.informatics.iupui.edu/~camcrosb/hw6-315/
