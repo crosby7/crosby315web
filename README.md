@@ -18,6 +18,8 @@ Create a fully-functional CRUD application using MVC, SPD. Site is fully respons
 - There is a card-sized button that allows users to add recipes. This is always the last card listed in the card view. 
 - Used webpack library to export relevant functions to services.js
 
+Firebase Link: 
+https://console.firebase.google.com/u/0/project/n315-cc/overview
 
 Access homework 8 by:
 https://in-info-web4.informatics.iupui.edu/~camcrosb/hw8-315/dist/
